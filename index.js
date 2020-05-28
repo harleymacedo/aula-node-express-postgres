@@ -11,7 +11,6 @@ app.engine('handlebars', handleBars({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
 
 //uses
-//app.use(handleBars())
 app.use(express.static(__dirname + '/public'))
 app.use(methodOverride('_method', {methods: ['GET', 'POST', 'PUT', 'DELETE']} ))
 app.use(methodOverride('X-HTTP-Method-Override'))
