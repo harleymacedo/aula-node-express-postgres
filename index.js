@@ -17,6 +17,6 @@ app.use(methodOverride('_method', {methods: ['GET', 'POST', 'PUT', 'DELETE']} ))
 app.use(methodOverride('X-HTTP-Method-Override'))
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.get('/cursos', cursosRouters.obterCursos(req, res))
+app.get('/cursos', cursosRouters.obterCursos)
 
 app.listen(process.env.PORT || 3000)
