@@ -1,5 +1,5 @@
 const Pool = require('pg')
-const url = process.env.URL_BANCO
+const url = process.env.DATABASE_URL
 
 const con = new Pool({
     connectionString: url
