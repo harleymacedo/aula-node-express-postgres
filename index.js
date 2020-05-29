@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 //app.get('/cursos', cursosRouters.obterCursos)
 app.get('/cursos', (req, res) => {
-    res.send('curso')
+    res.render('curso')
 })
 
 var porta = process.env.PORT || 3000
