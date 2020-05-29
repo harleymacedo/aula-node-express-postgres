@@ -3,6 +3,7 @@ const app = express()
 const handleBars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+const cursosRouters = require('./routes/cursosRouters')
 
 //engine view
 app.engine('handlebars', handleBars({defaultLayout: 'main'}))
@@ -16,9 +17,7 @@ app.use(methodOverride('_method', {methods: ['GET', 'POST', 'PUT', 'DELETE']} ))
 app.use(methodOverride('X-HTTP-Method-Override'))
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.get('/', (req, res) => {
-    res.render('home')
-})
+app.get('/cursos', cursosRouters.obterCursos(req, res))
 
 app.listen(3000, () => {
     console.log('App rodando!')
