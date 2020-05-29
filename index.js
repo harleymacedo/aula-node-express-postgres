@@ -19,6 +19,4 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/cursos', cursosRouters.obterCursos(req, res))
 
-app.listen(3000, () => {
-    console.log('App rodando!')
-})
+app.listen(process.env.PORT || 3000)
