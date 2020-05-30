@@ -23,4 +23,6 @@ app.get('/cursos', cursosRouters.obterCursos)
 // })
 
 var porta = process.env.PORT || 3000
-app.listen(porta)
+app.listen(porta, () => {
+    console.log('App rodando na porta: ' + porta)
+})
