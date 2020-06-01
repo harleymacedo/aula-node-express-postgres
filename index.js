@@ -18,9 +18,7 @@ app.use(methodOverride('X-HTTP-Method-Override'))
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/cursos', cursosRouters.obterCursos)
-// app.get('/cursos', (req, res) => {
-//     res.render('curso')
-// })
+app.get('/cursos/detalhe/:id', cursosRouters.detalheCurso)
 
 var porta = process.env.PORT || 3000
 app.listen(porta, () => {
