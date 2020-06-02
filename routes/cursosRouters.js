@@ -14,8 +14,9 @@ async function todos (req, res) {
 
 async function detalhe(req, res) {
     try{
+        let id = req.params.id
         await con.connect()
-        await con.query('select id, nome, duracao from curso where id = 1', (error, result) => {
+        await con.query("select id, nome, duracao from curso where id = " + id, (error, result) => {
             res.render('cursoDetalhe', {curso: result.rows[0]})
         })
     } catch (error) {
@@ -29,11 +30,15 @@ function novo(req, res) {
 
 async function cadastrar(req, res) {
     try {
+        let nome = req.body.nome
+        let duracao = req.body.duracao
+        console.log(nome + ',' + duracao)
         await con.connect()
-        await con.query("insert into curso (nome, duracao) values ('Novo curso', 60)")
+        await con.query("insert into curso (nome, duracao) values ('" + nome + "', " + duracao + " )")
         res.redirect('/cursos/novo')
     } catch (error) {
-        render('home')
+        console.log(error.toString())
+        res.render('home')
     }
 }
 
