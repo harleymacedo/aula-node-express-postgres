@@ -1,10 +1,9 @@
 <div class="container">
     <h2>Detalhe de curso</h2>
-    <div class="card">
-        <div class="card-body">
-            <h3 class="card-title">Id: {{curso.id}} </h3>
-            <p class="card-text">Nome: {{curso.nome}} </p>
-            <p class="card-text">Duração {{curso.duracao}} </p>
-        </div>
-    </div>
+    <form action="/cursos/deletar/?_method=DELETE" method="POST">
+        Id:<input type="text" value="{{curso.id}}" class="form-control" name="id"/>
+        Nome:<input type="text" value="{{curso.nome}}" class="form-control" name="nome"/>
+        Duração:<input type="text" value="{{curso.duracao}}" class="form-control" name="duracao"/>
+        <input type="submit" value="Deletar" class="btn btn-danger" />
+    </form>
 </div>

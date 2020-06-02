@@ -4,7 +4,6 @@ async function todos (req, res) {
     try{
         await con.connect()
         await con.query('select id, nome from curso', (error, result) => {
-            console.log(result.rows)
             res.render('curso', {cursos: result})
         })
     } catch (error) {
@@ -32,18 +31,22 @@ async function cadastrar(req, res) {
     try {
         let nome = req.body.nome
         let duracao = req.body.duracao
-        console.log(nome + ',' + duracao)
         await con.connect()
         await con.query("insert into curso (nome, duracao) values ('" + nome + "', " + duracao + " )")
-        res.redirect('/cursos/novo')
     } catch (error) {
-        console.log(error.toString())
         res.render('home')
     }
 }
 
-function deletar(req, res) {
-
+async function deletar(req, res) {
+    try{
+        let id = req.body.id
+        await con.connect()
+        await con.query('delete from curso where id = ' + id)
+        res.redirect('/cursos/todos')
+    } catch(error) {
+        res.render('home')
+    }
 }
 
 function atualizar(req, res) {

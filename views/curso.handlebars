@@ -1,11 +1,11 @@
 <div class="container">
     <table class="table table-striped">
         <tr>
-            <th> Id </th><th> Nome </th>
+            <th> Id </th><th> Nome </th> <th> Mais </th>
         </tr>
         {{#each cursos.rows}}        
         <tr>
-            <td> {{this.id}} </td><td> {{this.nome}} </td>
+            <td> {{this.id}} </td><td> {{this.nome}} </td> <td><a href='/cursos/detalhe/{{this.id}}'><img src="https://img.icons8.com/office/30/000000/add.png"></span></a></td>
         </tr>
         {{/each}}
     </table>
