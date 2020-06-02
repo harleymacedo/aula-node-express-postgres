@@ -17,8 +17,12 @@ app.use(methodOverride('_method', {methods: ['GET', 'POST', 'PUT', 'DELETE']} ))
 app.use(methodOverride('X-HTTP-Method-Override'))
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.get('/cursos', cursosRouters.obterCursos)
-app.get('/cursos/detalhe/:id', cursosRouters.detalheCurso)
+app.get('/cursos/todos', cursosRouters.todos)
+app.get('/cursos/detalhe/:id', cursosRouters.detalhe)
+app.get('/cursos/novo', cursosRouters.novo)
+app.post('/cursos/cadastrar', cursosRouters.cadastrar)
+app.delete('/cursos/deletar/:id', cursosRouters.deletar)
+app.put('/cursos/atualizar', cursosRouters.atualizar)
 
 var porta = process.env.PORT || 3000
 app.listen(porta, () => {
