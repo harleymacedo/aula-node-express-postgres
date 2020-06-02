@@ -31,7 +31,7 @@ async function cadastrar(req, res) {
     try {
         await con.connect()
         await con.query("insert into curso (nome, duracao) values ('Novo curso', 60)")
-        res.redirect('/home')
+        res.redirect('/cursos/novo')
     } catch (error) {
         render('home')
     }
