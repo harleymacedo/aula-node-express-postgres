@@ -17,7 +17,7 @@ app.use(methodOverride('_method', {methods: ['GET', 'POST', 'PUT', 'DELETE']} ))
 app.use(methodOverride('X-HTTP-Method-Override'))
 app.use(bodyParser.urlencoded({extended: false}))
 
-//Rotas
+//Rotas 1
 app.get('/cursos/todos', cursosRouters.todos)
 app.get('/cursos/detalhe/:id', cursosRouters.detalhe)
 app.get('/cursos/novo', cursosRouters.novo)

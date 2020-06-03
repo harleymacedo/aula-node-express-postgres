@@ -33,6 +33,7 @@ async function cadastrar(req, res) {
         let duracao = req.body.duracao
         await con.connect()
         await con.query("insert into curso (nome, duracao) values ('" + nome + "', " + duracao + " )")
+        res.redirect('/cursos/todos')
     } catch (error) {
         res.render('home')
     }
@@ -49,8 +50,20 @@ async function deletar(req, res) {
     }
 }
 
-function atualizar(req, res) {
-
+async function atualizar(req, res) {
+    try{
+        let id = req.body.id
+        let novoNome = req.body.nome
+        let duracao = req.body.duracao
+        console.log(novoNome)
+        let sql = "update curso set nome = '" + novoNome + "', duracao = " + duracao + " where id = " + id
+        await con.connect()
+        await con.query(sql)
+        console.log(sql)
+        res.redirect('/cursos/todos')
+    } catch(error) {
+        res.render('home')
+    }
 }
 
 module.exports = {todos, detalhe, novo, cadastrar, deletar, atualizar}
