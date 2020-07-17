@@ -5,9 +5,12 @@
         </tr>
         {{#each cursos.rows}}        
         <tr>
-            <td> {{this.id}} </td><td> {{this.nome}} </td> <td><a href='/cursos/detalhe/{{this.id}}'><img src="https://img.icons8.com/office/30/000000/add.png"></span></a></td>
+            <td> {{this.id}} </td><td> {{this.nome}} </td>
+            <td><a href='/cursos/detalhe/{{this.id}}'>
+                <img src="https://img.icons8.com/office/30/000000/add.png"></span></a>
+            </td>
         </tr>
         {{/each}}
     </table>
-    <p>  </p>
+    <p></p>
 </div>
